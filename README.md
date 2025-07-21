@@ -2,7 +2,7 @@
 Owm library for Watt.
 
 # Example
-```kotlin
+```go
 import 'owm.wt'
 import 'std.io'
 
