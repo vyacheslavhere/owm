@@ -2,7 +2,7 @@
 Owm library for Watt.
 
 # Example
-```gleam
+```ts
 import 'owm.wt'
 import 'std.io'
 
