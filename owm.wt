@@ -6,7 +6,7 @@ import 'std.ffi'
  | owm library
  | todo: add forecast
 */
-type Observatory {
+type Observatory(api_key) {
     lib := ffi.load(
         '/libowm.so',
         [
@@ -17,7 +17,7 @@ type Observatory {
             }
         ]
     )
-    fn request(city, api_key, lang) {
+    fn request(city, lang) {
         return json.decode(lib.call('weather',[city, api_key, lang]))
     }
 }
