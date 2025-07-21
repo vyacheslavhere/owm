@@ -1,0 +1,23 @@
+import 'std.json'
+import 'std.ffi'
+
+/*
+ Library: owm. Type: observatory
+ | owm library
+ | todo: add forecast
+*/
+type Observatory {
+    lib := ffi.load(
+        '/libowm.so',
+        [
+            {
+               'name': 'weather',
+               'out': 'string',
+               'params': ['ptr', 'ptr', 'ptr']
+            }
+        ]
+    )
+    fn request(city, api_key, lang) {
+        return json.decode(lib.call('weather',[city, api_key, lang]))
+    }
+}
